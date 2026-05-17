@@ -1,0 +1,471 @@
+:root {
+  --bg: #e8dfd6;        /* washed beige */
+  --paper: #f2ebe3;     /* soft paper */
+  --text: #3a2f2a;      /* warm dark brown */
+  --accent: #8a5a44;    /* muted rust */
+}
+
+body{
+  margin:0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:  'Libre Baskerville', serif;
+}
+
+section{
+  background: #f5f1eb;
+  margin: 60px auto;
+  width: 85%;
+  padding: 40px;
+}
+
+.credit {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: white;
+  background: #8b0000;
+  padding: 6px 10px;
+  margin: 30px auto 0;   
+  width: fit-content; 
+}
+
+
+.magazine-hero {
+  background: #f5f1eb;
+  padding: 40px;
+  margin: 60px auto;
+  width: 85%;
+
+  position: relative;
+
+  /* soft shadow */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+
+  /* slightly imperfect edges */
+  clip-path: polygon(
+    2% 0%, 98% 1%, 100% 5%, 98% 98%, 
+    95% 100%, 5% 98%, 0% 95%, 1% 3%
+  );
+
+  background-image: 
+    radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+.hero-inner{
+  text-align: center;
+}
+
+.top-meta {
+  display: flex;
+  justify-content: space-between;
+  color: #7a7a7a;
+  font-size: 12px;
+}
+
+.hero-title{
+  font-family: 'Special Elite', serif;
+  font-size: 26px;
+  text-align: center;
+  color: var(--text);
+
+  letter-spacing: 1px;
+  line-height: 1.6;
+
+  transform: rotate(-1deg);
+  margin: 20px 0;
+}
+
+.photo-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.photo{
+  position: relative;
+  border: 10px solid #8b0000;
+  overflow: hidden;
+}
+
+.frame {
+  position: relative;
+  padding: 12px;
+
+  background: #f5f1eb; /* soft paper inside */
+  border: 5px solid #7a2f2f; /* slightly muted red */
+
+  box-shadow: 
+    0 8px 20px rgba(0,0,0,0.12),   /* outer shadow */
+    inset 0 0 0 1px rgba(122,47,47,0.25); /* inner subtle line */
+}
+
+.photo:nth-child(1) {
+  transform: rotate(-1.5deg);
+}
+
+.photo:nth-child(2) {
+  transform: rotate(1deg);
+}
+
+.photo:nth-child(3) {
+  transform: rotate(-1deg);
+}
+
+.photo img{
+  width: 100%;
+  height: 100%;
+  object-fit:contain;
+  display: block;
+  filter: grayscale(100%);
+  padding: 0;
+  will-change: transform;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.frame img {
+  transition: transform 0.3s ease;
+}
+
+.intro-hero{
+  width: 50%;
+  max-width: 1100px;
+  margin: 80px auto;
+}
+
+.intro{
+  display: grid;
+  grid-template-columns: 1.5fr 1.1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.intro-img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 1px;
+  object-fit: cover;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.intro-text {
+  text-align: left;
+}
+
+.hero-title {
+  font-family: 'Special Elite';
+  font-size: 32px;
+  margin: 10px 0 20px;
+}
+
+.intro-text p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.8;
+  max-width: 400px;
+}
+
+@media (max-width: 768px) {
+  .intro {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .intro-text {
+    text-align: center;
+  }
+
+  .intro-img {
+    margin: 20px auto 0;
+  }
+}
+/* LOVE NOTE */
+
+.love-note{
+  background: #552525;
+  background-image: 
+  radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+  linear-gradient(135deg, #7a2f2f 0%, #6a2626 100%);
+  background-size: 4px 4px, 100% 100%;
+  color: #f5f1eb;
+  padding: 50px 30px;
+  width: 85%;
+
+  position: relative;
+  border-radius: 20px;
+}
+
+.love-note::before {
+  background-image: url("images/paper-texture.jpg");
+  opacity: 1;
+}
+
+/* note carousel */
+
+.note-nav {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);   /* softer white */
+}
+
+.note-nav span {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.note-nav .active {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.note-content {
+  text-align: center;
+  margin: 0px 0;
+  color: #f5f1eb;   /* soft white text */
+}
+
+.note-content h2 {
+  font-size: 24px;                 /* slightly reduced for balance */
+  font-family: 'Special Elite';    /* rustic 90s vibe */
+  font-style: normal;              /* remove italic, feels cleaner */
+  line-height: 1.6;
+  letter-spacing: 1px;
+}
+
+.note-content span {
+  color: #f8caca;   /* lighter red highlight */
+}
+
+.note-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);   /* subtle */
+}
+
+/* NOTE CAROUSEL */
+.note-carousel {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+
+  margin-top: 40px;
+  width: 100%;
+  
+}
+
+.note-slide {
+  display: flex;
+  justify-content: center;
+  z-index: 0;
+}
+
+.note-slide::before {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background: rgba(255,255,255,0.05);
+  filter: blur(40px);
+  z-index: -1;
+}
+
+.note-slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 2;
+}
+
+.note-slide h3 {
+  font-family: 'Special Elite';
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.note-slide p {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 12px;
+  max-width: 250px;
+}
+
+.note-slide a {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid #fff;
+  font-size: 12px;
+}
+
+.note-card {
+  background: #f5f1eb;
+  color: #3a2f2a;
+
+  padding: 20px;
+  width: 100%;      
+  max-width: 280px; 
+  height: auto;     
+  border-radius: 10px;
+  overflow: hidden;          
+
+  box-shadow: 
+    0 8px 20px rgba(0,0,0,0.15),
+    inset 0 0 0 1px rgba(0,0,0,0.05);
+
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.note-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 
+    0 15px 35px rgba(0,0,0,0.25);
+}
+
+.card-img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;   
+  display: block;   
+
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  filter: grayscale(20%) contrast(95%);
+}
+
+.note-card h3 {
+  font-family: 'Special Elite';
+  margin-bottom: 10px;
+}
+
+.note-card p {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 12px;
+}
+
+.note-card a {
+  text-decoration: none;
+  border-bottom: 1px solid #3a2f2a;
+  font-size: 12px;
+  color: inherit;
+  opacity: 0.6;
+}
+
+.note-card a:hover {
+  opacity: 1.5;
+}
+
+/* MUSIC */
+.music-section{
+  border-radius: 20px;
+}
+
+.music-card.embed {
+  width: 100%;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.music-embed-grid{
+  display: grid !important;
+  grid-template-columns: repeat(3,1fr) !important;
+  gap: 30px;
+}
+
+.music-card.embed iframe {
+  width: 100%;
+  height: 352px;
+  border-radius: 20px;
+}
+
+.music-card.embed:hover {
+  transform: translateY(-5px);
+}
+
+@media (max-width: 900px) {
+  .music-embed-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Caption styling */
+.song-caption {
+  text-align: center;
+  width: 100%;
+  margin-top: 30px;
+  font-size: 14px;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.letter {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.fancy-text {
+  font-style: italic;
+  font-size: 26px;
+  line-height: 1.5;
+  text-align: center;   /* THIS is the key */
+  width: 100%;
+}
+
+.retro-title {
+  text-align: center;
+  font-family: 'Special Elite', serif;
+  font-size: 24px;
+  line-height: 1.6;
+  letter-spacing: 1px;
+}
+
+/* pixel "you" */
+.pixel {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 30px;
+  color:#8b0000;
+  display: inline-block;
+}
+
+/* THE MAGIC */
+.dropcap {
+  font-family: 'Great Vibes', cursive;
+  font-size: 80px;
+  color: #8b0000;
+
+  display: inline-block;   /* important */
+  vertical-align: middle;  /* aligns nicely with text */
+
+  margin-right: 4px;
+  line-height: 0.8;        /* prevents weird spacing */
+}
+
+
+/* optional refinement */
+.fancy-text span:last-child {
+  color: #8b0000;
+  font-size: 32px;
+}
